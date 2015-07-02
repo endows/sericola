@@ -42,5 +42,7 @@ Template.body.onRendered(function(){
     var canvas = $("canvas#line")[0]
     var ctx = canvas.getContext("2d");
     ctx.fillText(text, 10, 75);
+    $("canvas").draggable({ containment: 'body'})
+    
   })
 })
