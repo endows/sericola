@@ -17,7 +17,13 @@ Template.body.onRendered(function(){
 
       // 画像がloadされた後に、canvasに描画する
       image.onload = function() {
-        ctx.drawImage(image, 0, 0);
+        // ctx.drawImage(image, 0, 0 ,500,500);
+        $("canvas#image").css('width',String(image.width))
+        $("canvas#image").css('height',String(image.height))
+        setTimeout(function(){
+          ctx.drawImage(image, 0, 0 ,image.width,image.height);
+        },1000)
+
       }
 
       // 画像のURLをソースに設定
@@ -43,6 +49,6 @@ Template.body.onRendered(function(){
     var ctx = canvas.getContext("2d");
     ctx.fillText(text, 10, 75);
     $("canvas").draggable({ containment: 'body'})
-    
+
   })
 })
