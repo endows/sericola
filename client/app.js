@@ -1,7 +1,6 @@
-console.log($)
 Template.body.onRendered(function(){
-  $('input').change(function(e) {
-    var canvas = $("canvas");
+  $('#file').change(function(e) {
+    var canvas = $("canvas#image");
     var ctx = canvas[0].getContext("2d");
 
     // 選択されたファイルを取得
@@ -30,10 +29,18 @@ Template.body.onRendered(function(){
   });
 
   window.download = function(){
-    c = document.querySelector('canvas')
+    c = document.querySelector('canvas#image')
     link = document.querySelector('a')
     link.setAttribute('download', 'MintyPaper.jpg');
     link.setAttribute('href', c.toDataURL("image/jpg").replace("image/jpg", "image/octet-stream"));
     link.click();
   }
+
+  $('button').click(function(){
+    var text = $('#text').val()
+    console.log(text)
+    var canvas = $("canvas#line")[0]
+    var ctx = canvas.getContext("2d");
+    ctx.fillText(text, 10, 75);
+  })
 })
