@@ -18,10 +18,14 @@ Template.body.onRendered(function(){
       // 画像がloadされた後に、canvasに描画する
       image.onload = function() {
         // ctx.drawImage(image, 0, 0 ,500,500);
+
         $("canvas#image").css('width',String(image.width))
         $("canvas#image").css('height',String(image.height))
         setTimeout(function(){
-          ctx.drawImage(image, 0, 0 ,image.width,image.height);
+          var canvas = $("canvas#image");
+          console.log(canvas.css('height'))
+          var ctx = canvas[0].getContext("2d");
+          ctx.drawImage(image, 0, 0);
         },1000)
 
       }
