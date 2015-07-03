@@ -5,3 +5,7 @@ canvas#image {
 canvas#line {
   z-index: 10;
 }
+
+canvas {
+  position: absolute;
+}
