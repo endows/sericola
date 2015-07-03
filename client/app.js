@@ -1,7 +1,7 @@
 Template.body.onRendered(function() {
   $('input').change(function() {
 
-    var preview = document.querySelector('img');
+    var preview = new Image();
     var file = document.querySelector('input[type=file]').files[0];
     var reader = new FileReader();
 
